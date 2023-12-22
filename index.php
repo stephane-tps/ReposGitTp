@@ -11,7 +11,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 
 <head>
     <meta charset="UTF-8">
-    <title>FestiPlan</title>
+    <title>Liste des fêtes</title>
     <link rel="stylesheet" href="css/root.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
