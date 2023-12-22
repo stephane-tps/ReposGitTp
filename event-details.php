@@ -34,7 +34,7 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
                 // Récupérer les données de l'événement sous forme de tableau associatif
                 $event = $stmt->fetch(PDO::FETCH_ASSOC);
             } else {
-                // Si aucun événement n'est trouvé avec cet ID, rediriger vers une page d'erreur
+                // Si aucunfête n'est trouvé avec cet ID, rediriger vers une page d'erreur
                 header("location: error.php");
                 exit();
             }

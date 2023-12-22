@@ -11,7 +11,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 // Inclure le fichier de configuration pour la connexion à la base de données
 require_once "includes/config.php";
 
-// Supprimer un événement
+// Supprimer unfête
 // Vérifier si l'ID de l'événement à supprimer est passé dans l'URL
 if (isset($_GET["delete"]) && !empty(trim($_GET["delete"]))) {
     // Préparer une requête SQL pour supprimer l'événement
@@ -23,7 +23,7 @@ if (isset($_GET["delete"]) && !empty(trim($_GET["delete"]))) {
         $stmt->bindParam(":user_id", $_SESSION["id"], PDO::PARAM_INT);
         $param_id = trim($_GET["delete"]);
 
-        // Exécuter la requête. En cas de succès, rediriger l'utilisateur vers la page de ses événements
+        // Exécuter la requête. En cas de succès, rediriger l'utilisateur vers la page de sesfêtes
         if ($stmt->execute()) {
             header("location: my-events.php");
             exit();
@@ -36,11 +36,11 @@ if (isset($_GET["delete"]) && !empty(trim($_GET["delete"]))) {
     unset($stmt);
 }
 
-// Récupérer les événements créés par l'utilisateur
+// Récupérer lesfêtes créés par l'utilisateur
 $sql = "SELECT id, title, image FROM events WHERE user_id = :user_id";
 $events = [];
 
-// Préparer et exécuter la requête pour récupérer les événements
+// Préparer et exécuter la requête pour récupérer lesfêtes
 if ($stmt = $pdo->prepare($sql)) {
     $stmt->bindParam(":user_id", $_SESSION["id"], PDO::PARAM_INT);
 
@@ -77,7 +77,7 @@ unset($pdo);
     <?php include('includes/header.php'); ?> <!-- En-tête du site -->
 
     <div class="container">
-        <h2>Mes Événements</h2>
+        <h2>Mesfêtes</h2>
         <div class="event-container">
             <?php if (count($events) > 0) : ?>
                 <?php foreach ($events as $event) : ?>
@@ -94,12 +94,12 @@ unset($pdo);
 
                         <div class="buttons">
                             <a class="custom_button" href="event-details.php?id=<?php echo $event["id"]; ?>">Détails</a>
-                            <a class="custom_button custom_button_delete" href="my-events.php?delete=<?php echo $event["id"]; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet événement ?');">Supprimer</a>
+                            <a class="custom_button custom_button_delete" href="my-events.php?delete=<?php echo $event["id"]; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cetfête ?');">Supprimer</a>
                         </div>
                     </div>
                 <?php endforeach; ?>
             <?php else : ?>
-                <p>Aucun événement à afficher.</p>
+                <p>Aucunfête à afficher.</p>
             <?php endif; ?>
         </div>
     </div>

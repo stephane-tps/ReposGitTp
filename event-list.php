@@ -11,10 +11,10 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 // Inclure le fichier de configuration pour la connexion à la base de données
 require_once "includes/config.php";
 
-// Préparer une requête SQL pour récupérer les événements depuis la base de données
-// Les événements sont triés par date de manière décroissante
+// Préparer une requête SQL pour récupérer lesfêtes depuis la base de données
+// Lesfêtes sont triés par date de manière décroissante
 $sql = "SELECT id, title, description, event_date, location, is_public, image FROM events ORDER BY event_date DESC";
-$events = []; // Initialisation d'un tableau vide pour stocker les événements
+$events = []; // Initialisation d'un tableau vide pour stocker lesfêtes
 
 // Exécuter la requête SQL et remplir le tableau $events avec les résultats
 if ($result = $pdo->query($sql)) {
@@ -36,7 +36,7 @@ unset($pdo);
 
 <head>
     <meta charset="UTF-8">
-    <title>Liste des Événements</title>
+    <title>Liste desfêtes</title>
     <link rel="stylesheet" href="css/root.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
@@ -72,7 +72,7 @@ unset($pdo);
                     </a>
                 <?php endforeach; ?>
             <?php else : ?>
-                <p>Aucun événement à afficher.</p>
+                <p>Aucunfête à afficher.</p>
             <?php endif; ?>
         </div>
     </div>
