@@ -129,6 +129,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php include('includes/header.php'); ?> <!-- En-tête du site -->
 
     <div class="container">
+
         <h2>Créer un Nouvel Fête</h2>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
             <div>
@@ -137,21 +138,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <span><?php echo $title_err; ?></span>
             </div>
             <div>
-                <label>Descripton</label>
+                <label>description</label>
                 <textarea name="description" rows="5" collumn="3"><?php echo $description; ?></textarea>
                 <span><?php echo $description_err; ?></span>
             </div>
             <div>
+
                 <label>Date du le Fête</label>
                 <input type="datetime-local" name="event_date" value="<?php echo $event_date; ?>">
                 <span><?php echo $event_date_err; ?></span>
             </div>
             <div>
-                <label>Liieu</label>
+                <label>lieu</label>
                 <input type="text" name="location" maxlength="60" value="<?php echo $location; ?>">
                 <span><?php echo $location_err; ?></span>
             </div>
             <div>
+
                 <label>Fête Public</label>
                 <input type="checkbox" name="is_public" <?php echo $is_public ? 'checked' : ''; ?>>
             </div>
